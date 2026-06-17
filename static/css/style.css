@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Dynamic Mesh Gradient Colors */
+  --color-bg1: rgb(108, 0, 162);
+  --color-bg2: rgb(0, 17, 82);
+  --color1: 18, 113, 255;
+  --color2: 221, 74, 255;
+  --color3: 100, 220, 255;
+  --color4: 200, 50, 50;
+  --color5: 180, 180, 50;
+  --color-interactive: 140, 100, 255;
+  
+  /* Glass and UI */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-pill: 99px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================
+   STREAMLIT CORE OVERRIDES (SAFE)
+   ========================================== */
+body, #root, [data-testid="stAppViewContainer"], .stApp, main, [data-testid="stHeader"] {
+  background-color: transparent !important;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Hide default streamlit header background and make it glass */
+header[data-testid="stHeader"] {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* Make text white so it's readable on dark gradient */
+h1, h2, h3, h4, p, span, label, div[data-testid="stMarkdownContainer"], li {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Data Editors and Inputs */
+[data-testid="stDataFrame"] {
+  background-color: rgba(0,0,0,0.5) !important;
+  border-radius: var(--radius-sm);
+}
+
+/* Expander styling for a glass look */
+[data-testid="stExpander"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ==========================================
+   LIQUID MESH GRADIENT BACKGROUND 
+   ========================================== */
+.gradient-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  z-index: -999;
+}
+
+.gradients-container {
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.g1, .g2, .g3, .g4, .g5, .interactive {
+  position: absolute;
+  mix-blend-mode: hard-light;
+  opacity: 0.8;
+  border-radius: 50%;
+}
+
+.g1 {
+  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+  width: 80%; height: 80%;
+  top: calc(50% - 40%); left: calc(50% - 40%);
+  animation: moveVertical 30s ease infinite;
+}
+
+.g2 {
+  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+  width: 80%; height: 80%;
+  top: calc(50% - 40%); left: calc(50% - 40%);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+}
+
+.g3 {
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+  width: 80%; height: 80%;
+  top: calc(50% - 40% + 200px); left: calc(50% - 40% - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+}
+
+.g4 {
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+  width: 80%; height: 80%;
+  top: calc(50% - 40%); left: calc(50% - 40%);
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: 0.7;
+}
+
+.g5 {
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+  width: 160%; height: 160%;
+  top: calc(50% - 80%); left: calc(50% - 80%);
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+}
+
+.interactive {
+  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+  width: 100%; height: 100%;
+  top: -50%; left: -50%;
+  opacity: 0.7;
+}
+
+@keyframes moveInCircle { 0% { transform: rotate(0deg); } 50% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
+@keyframes moveVertical { 0% { transform: translateY(-50%); } 50% { transform: translateY(50%); } 100% { transform: translateY(-50%); } }
+@keyframes moveHorizontal { 0% { transform: translateX(-50%) translateY(-10%); } 50% { transform: translateX(50%) translateY(10%); } 100% { transform: translateX(-50%) translateY(-10%); } }
+
+/* ==========================================
+   STREAMLIT BUTTONS (Liquid/Google Material Touch)
+   ========================================== */
+.stButton > button {
+  position: relative;
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: var(--radius-pill) !important;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: var(--transition) !important;
+  z-index: 1;
+}
+
+.stButton > button::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: var(--color-interactive);
+  border-radius: var(--radius-pill);
+  z-index: -2;
+}
+
+.stButton > button::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0%; height: 100%;
+  background-color: rgba(255,255,255,0.3);
+  transition: var(--transition);
+  border-radius: var(--radius-pill);
+  z-index: -1;
+}
+
+.stButton > button:hover::before { width: 100%; }
+
+.stButton > button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 20px rgba(140, 100, 255, 0.4) !important;
+  border-color: rgba(255,255,255,0.8) !important;
+}
+
+/* Google-style Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-anim 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* Reveal animations removed for Streamlit compatibility */
