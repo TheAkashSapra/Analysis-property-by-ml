@@ -1,6 +1,8 @@
 Model 26.6.1
 [first release]
 
+<img width="1915" height="900" alt="Screenshot 2026-06-17 171614" src="https://github.com/user-attachments/assets/744a6b27-2c80-42ec-a7c1-66e32d2dd0e7" />
+
 1. What is the model about?
 This is an interactive Linear Regression model designed to predict property prices based on their physical size (Area). It serves as a visual learning lab to understand how Machine Learning models "learn" from data by finding the mathematical line of best fit.
 
@@ -24,5 +26,6 @@ Students & Beginners: Anyone learning Data Science, Machine Learning, or AI for 
 Educators & Instructors: Teachers who need an interactive, highly-visual aid to explain Gradient Descent and Cost Functions.
 Developers: Software engineers looking to understand the underlying math of AI before moving on to complex neural networks.
 
-<img width="1915" height="900" alt="Screenshot 2026-06-17 171614" src="https://github.com/user-attachments/assets/744a6b27-2c80-42ec-a7c1-66e32d2dd0e7" />
+<img width="1460" height="938" alt="image" src="https://github.com/user-attachments/assets/b2363d4f-4c4a-4840-8fd9-7e40630c265c" />
+
 
