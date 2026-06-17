@@ -23,3 +23,6 @@ Allows manual experimentation to see why the optimized model is mathematically s
 Students & Beginners: Anyone learning Data Science, Machine Learning, or AI for the first time.
 Educators & Instructors: Teachers who need an interactive, highly-visual aid to explain Gradient Descent and Cost Functions.
 Developers: Software engineers looking to understand the underlying math of AI before moving on to complex neural networks.
+
+<img width="1915" height="900" alt="Screenshot 2026-06-17 171614" src="https://github.com/user-attachments/assets/744a6b27-2c80-42ec-a7c1-66e32d2dd0e7" />
+
