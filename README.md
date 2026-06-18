@@ -2,6 +2,7 @@ Model 26.6.1
 [first release]
 
 <img width="1915" height="900" alt="Screenshot 2026-06-17 171614" src="https://github.com/user-attachments/assets/744a6b27-2c80-42ec-a7c1-66e32d2dd0e7" />
+[Visit Site](https://analysis-property-by-ml.streamlit.app/#1-training-data-actual)
 
 1. What is the model about?
 This is an interactive Linear Regression model designed to predict property prices based on their physical size (Area). It serves as a visual learning lab to understand how Machine Learning models "learn" from data by finding the mathematical line of best fit.
